@@ -138,18 +138,37 @@ def gavene_er_stjålet():
     frokost()
  
 def frokost():
+    global mat_spist
     cls()
     print("dette må du gjøre noe med!" "\n" "men mat er alltid en prioritet, du går bort til kjøkkenet...")
     print("1.spis loff med sjokoladepålegg (det er jo lørdag tross alt)")
-    print("2.spis grovbrød med makrell i tomat på (fisk er jo godt det og)")
+    print("2.spis grovbrød med makrell i tomat på. (fisk er jo godt det og)")
     svar = input("")
+    if svar == ("1"):
+        cls()
+        print("du spiser loff med sjokoladepålegg, kanskje ikke det mest mettende." "\n" "men det smaker jo godt")
+        mat_spist = 1
+        input("(trykk enter) ")
+        ut_og_lete(mat_spist)
+
+    elif svar == ("2"):
+        cls()
+        print("du spiser grovbrød med makrell i tomat" "\n" "masse energi å hente ut ifra dette måltidet :)")
+        mat_spist = 2
+        input("(trykk enter) ")
+        ut_og_lete(mat_spist)
     
+    else:
+        frokost()
     
-    
-    
-    
-    
-    
+def ut_og_lete(ms):
+    cls()
+    if ms == (1):
+        mat = ("loff")
+    elif ms == (2):
+        mat = ("fisk")
+    print("med "+ mat + " i magen er du nå klar for å finne gavene!")
+
 #-----------------------utilities---------------------#
  
 def savegames():
@@ -201,6 +220,8 @@ navn = "x"
 kledd_på = 0
 #0,av 1,farget 2,grått
  
+mat_spist = 0
+#0,ingenting 1,loff 2,grovbrød
  
 import time
  
