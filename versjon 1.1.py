@@ -177,11 +177,23 @@ def ut_og_lete(ms,energi):
     print("1.Ja, må jo det" "\n" "2.Nei, går fint det. Skal jo bare se meg rundt")
     svar = input("")
     if svar == ("1"):
+        cls()
         print("\n" "du bestemmer deg for å ta med noe på leteaksjonen din.")
-        print("tar du med 1.lommelykt (dagene er jo korte)""\n""eller 2.matpakke (hvordan eller skal man hodle konsentrasjonen oppe?)")
+        print("1.lommelykt (dagene er jo korte)""\n" "2.matpakke (hvordan ellers skal man hodle konsentrasjonen oppe?)")
+        print("(skriv noe annet / blankt for å angre)")
         svar = input("")
-        
-    
+        if svar == ("1"):
+            cls()
+            print("du tar med en lommelyk. det er jo korte dager tross alt")
+            input("")
+
+        elif svar == ("2"):
+            cls()
+            print("du pakker en matpakke med.""\n" "det er tross alt viktigt med jevne kosttilskudd gjennom dagen.")
+            input("")
+
+        else:
+            ut_og_lete(ms,energi)
     else:
         ut_og_lete(ms,energi)    
 
