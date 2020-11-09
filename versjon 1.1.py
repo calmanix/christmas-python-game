@@ -165,8 +165,9 @@ def frokost():
         frokost()
     
 def ut_og_lete(ms,energi):
-    global har_lommelykt
-    global har_matpakke
+    har_lommelykt = 0
+    har_matpakke = 0
+   
     cls()
     if ms == (1):
         mat = ("loff")
@@ -185,17 +186,39 @@ def ut_og_lete(ms,energi):
         if svar == ("1"):
             cls()
             print("du tar med en lommelyk. det er jo korte dager tross alt")
-            input("")
+            har_lommelykt = 1
+            input("(trykk enter) ")
+            ut_og_lete_2(ms,energi,har_lommelykt,har_matpakke)
 
         elif svar == ("2"):
             cls()
             print("du pakker en matpakke med.""\n" "det er tross alt viktigt med jevne kosttilskudd gjennom dagen.")
-            input("")
+            har_matpakke = 1
+            input("(trykk enter) ")
+            ut_og_lete_2(ms,energi,har_lommelykt,har_matpakke)
 
         else:
             ut_og_lete(ms,energi)
+    
+    elif svar == ("2"):
+        print("du velger å ikke ta med deg noe...")
+        input("(trykk enter) ")
+        ut_og_lete_2(ms,energi,har_lommelykt,har_matpakke)
+
     else:
         ut_og_lete(ms,energi)    
+
+
+def ut_og_lete_2(ms,energi,har_lommelykt,har_matpakke):
+    cls()
+    print(har_lommelykt)
+    print(har_matpakke)
+    input("")
+
+
+
+
+
 
 #-----------------------utilities---------------------#
  
@@ -255,10 +278,11 @@ energi = 0
 #0,ingen energi 2,lav 4,høy
 
 har_lommelykt = 0
-har_lommelykt = 0
+har_matpakke = 0
 
 import time
- 
+
+frokost()
 loading()
 
 
