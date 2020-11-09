@@ -282,7 +282,6 @@ har_matpakke = 0
 
 import time
 
-frokost()
 loading()
 
 
