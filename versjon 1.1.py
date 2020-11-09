@@ -139,6 +139,7 @@ def gavene_er_stjålet():
  
 def frokost():
     global mat_spist
+    global energi
     cls()
     print("dette må du gjøre noe med!" "\n" "men mat er alltid en prioritet, du går bort til kjøkkenet...")
     print("1.spis loff med sjokoladepålegg (det er jo lørdag tross alt)")
@@ -148,26 +149,41 @@ def frokost():
         cls()
         print("du spiser loff med sjokoladepålegg, kanskje ikke det mest mettende." "\n" "men det smaker jo godt")
         mat_spist = 1
+        energi = 2
         input("(trykk enter) ")
-        ut_og_lete(mat_spist)
+        ut_og_lete(mat_spist,energi)
 
     elif svar == ("2"):
         cls()
         print("du spiser grovbrød med makrell i tomat" "\n" "masse energi å hente ut ifra dette måltidet :)")
         mat_spist = 2
+        energi = 4
         input("(trykk enter) ")
-        ut_og_lete(mat_spist)
+        ut_og_lete(mat_spist,energi)
     
     else:
         frokost()
     
-def ut_og_lete(ms):
+def ut_og_lete(ms,energi):
+    global har_lommelykt
+    global har_matpakke
     cls()
     if ms == (1):
         mat = ("loff")
     elif ms == (2):
         mat = ("fisk")
     print("med "+ mat + " i magen er du nå klar for å finne gavene!")
+    print("nå, skal du pakke med noe?")
+    print("1.Ja, må jo det" "\n" "2.Nei, går fint det. Skal jo bare se meg rundt")
+    svar = input("")
+    if svar == ("1"):
+        print("\n" "du bestemmer deg for å ta med noe på leteaksjonen din.")
+        print("tar du med 1.lommelykt (dagene er jo korte)""\n""eller 2.matpakke (hvordan eller skal man hodle konsentrasjonen oppe?)")
+        svar = input("")
+        
+    
+    else:
+        ut_og_lete(ms,energi)    
 
 #-----------------------utilities---------------------#
  
@@ -222,7 +238,13 @@ kledd_på = 0
  
 mat_spist = 0
 #0,ingenting 1,loff 2,grovbrød
- 
+
+energi = 0
+#0,ingen energi 2,lav 4,høy
+
+har_lommelykt = 0
+har_lommelykt = 0
+
 import time
  
 loading()
