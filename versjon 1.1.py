@@ -4,6 +4,9 @@
 # du som leser dette, ikke ha høye forventninger
 # ---------------------------------------------------------
  
+import time
+ 
+
 def startup():
     #startmeny
     cls()	
@@ -71,6 +74,7 @@ def game_start():
     print("du heter " + navn + ", du er en " + kjønn + ". og håret ditt er " +hårfarge +"\n" "intressant valg" "\n" "spillet vil starte når du trykke enter. ta tiden du trenger")
     vent_på_reaksjon = input("")
     wake_up(kjønn,hårfarge,navn)
+ 
  
 def wake_up(kjønn,hudfarge,navn):
     global kledd_på
@@ -279,8 +283,6 @@ energi = 0
 
 har_lommelykt = 0
 har_matpakke = 0
-
-import time
 
 loading()
 
