@@ -108,6 +108,7 @@ def wake_up(kjønn,hudfarge,navn):
     else:
         wake_up(kjønn,hudfarge,navn)
  
+ 
 def prøv_å_sov():
     cls()
     print("du prøver å sove litt lengre. men du får så mange varslinger at nysjerrigheten din tar over, og du sjekker hva folk vil...")
@@ -115,6 +116,7 @@ def prøv_å_sov():
     print("(trykk enter)")
     vent_på_reaksjon = input("")
     gavene_er_stjålet()
+ 
  
 def gavene_er_stjålet():
     global kledd_på
@@ -140,6 +142,7 @@ def gavene_er_stjålet():
         print("du ser bort til juletreet, og til din forskrekkelse ser du at du og har blitt ett offer for denne gavebanditten...")     
     input("(trykk enter)")
     frokost()
+ 
  
 def frokost():
     global mat_spist
@@ -167,7 +170,8 @@ def frokost():
     
     else:
         frokost()
-    
+  
+  
 def ut_og_lete(ms,energi):
     har_lommelykt = 0
     har_matpakke = 0
@@ -232,11 +236,13 @@ def savegames():
     vent_på_reaksjon = input("")
     startup()
  
+ 
 def creds():
     cls()
     print("Duh, Håkon J. 10F" "\n" "trykk enter")
     vent_på_reaksjon = input()
     startup()
+ 
  
 def cls():
     # laget som en workaround til at det er forskjellige måter å gjøre cls på forskjellige os'er
