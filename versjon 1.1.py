@@ -5,7 +5,7 @@
 # ---------------------------------------------------------
  
 import time
- 
+import random
 
 def startup():
     #startmeny
@@ -27,7 +27,7 @@ def startup():
     else:
         cls()
         print("beklager, noe gikk galt. Prøv igjen" "\n""(trykk enter)")
-        vent_på_reaksjon = input()
+        input("")
         startup()
  
 #--------------------storyline-----------------
@@ -48,7 +48,7 @@ def game_start():
         cls()
         kjønn = 0
         print("opsann, der gikk noe galt. prøv på ny")
-        vent_på_reaksjon = input("")
+        input("")
         game_start()
     cls()
     
@@ -64,7 +64,7 @@ def game_start():
         cls()
         print("noe gikk galt, husk at du må velge noe på begge spørsmålene" "\n" "hvis ikke kommer du ikke videre")
         print("trykk enter")
-        vent_på_reaksjon = input("")
+        input("")
         game_start()
            
     cls()
@@ -72,7 +72,7 @@ def game_start():
     navn = str(input(""))
     cls()
     print("du heter " + navn + ", du er en " + kjønn + ". og håret ditt er " +hårfarge +"\n" "intressant valg" "\n" "spillet vil starte når du trykke enter. ta tiden du trenger")
-    vent_på_reaksjon = input("")
+    input("")
     wake_up(kjønn,hårfarge,navn)
  
  
@@ -89,7 +89,7 @@ def wake_up(kjønn,hudfarge,navn):
         cls()
         print("sjekker telefonen din..." "\n" "Du ser på varslingene dine, og du har blitt bombandert av meldinger fra venner. julepresangene deres har blitt stjålet...")
         print("(trykk enter)")
-        vent_på_reaksjon = input()
+        input()
         gavene_er_stjålet()    
  
     
@@ -114,7 +114,7 @@ def prøv_å_sov():
     print("du prøver å sove litt lengre. men du får så mange varslinger at nysjerrigheten din tar over, og du sjekker hva folk vil...")
     print("\n" "du ser at folk har lagt ut at presangene deres er blitt stjålet over natten. Julen er ødelagt for bygda")
     print("(trykk enter)")
-    vent_på_reaksjon = input("")
+    input("")
     gavene_er_stjålet()
  
  
@@ -219,13 +219,46 @@ def ut_og_lete(ms,energi):
 
 def ut_og_lete_2(ms,energi,har_lommelykt,har_matpakke):
     cls()
-    print(har_lommelykt)
-    print(har_matpakke)
+    print("du tar på deg klær, nå er det bare å begynne å lete, klokken er nå 12...")
+    print("1.gå rundt i nabolaget og se etter noe som er mistenkelig")
+    print("2.let i utkanten av bygda")
+    svar = input("")
+    if svar == ("1"):
+        cls()
+        print("du går rundt i nabolaget, du ser i bakgårdene til folk" "\n" "men du blir oppdaget av en sint nabo og du stikker bort derfra")
+        print("du finner ut at du skal lete i bygdas industrielle område")
+        energi -= 1
+        input("(trykk enter) ")
+        lete_industri(ms,energi,har_lommelykt,har_matpakke)
+
+    elif svar == ("2"):
+        cls()
+        print("du drar til utkankten av bygda...")
+        input("(trykk enter) ")
+        utkanten(ms,energi,har_lommelykt,har_matpakke)
+
+    else:
+        ut_og_lete_2(ms,energi,har_lommelykt,har_matpakke)
+
+
+def utkanten(ms,energi,har_lommelykt,har_matpakke):
+    cls()
+    print("du drar til utkanten av bygda, det er forlatte bygg fra gamledager")
+    print("og en skog")
+    print("1.utforsk bygningene")
+    print("2.dra inn i skoen og let")
+    input("")
+    # jobber videre senere
+
+
+def lete_industri(ms,energi,har_lommelykt,har_matpakke):
+    cls()
+    print("du vandrer bort til det industrielle området i bygda, hvem vet. Kanskje noen har gjemt gavene her?")
+    if energi == (1):
+        print("du begynner å bli litt sulten, men det går fint")
     input("")
 
-
-
-
+    #jobber videre senere
 
 
 #-----------------------utilities---------------------#
@@ -233,14 +266,14 @@ def ut_og_lete_2(ms,energi,har_lommelykt,har_matpakke):
 def savegames():
     cls()
     print("kommer i en sener versjon :)")
-    vent_på_reaksjon = input("")
+    input("")
     startup()
  
  
 def creds():
     cls()
     print("Duh, Håkon J. 10F" "\n" "trykk enter")
-    vent_på_reaksjon = input()
+    input()
     startup()
  
  
