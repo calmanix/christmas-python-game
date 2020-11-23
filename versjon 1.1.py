@@ -247,18 +247,63 @@ def utkanten(ms,energi,har_lommelykt,har_matpakke):
     print("og en skog")
     print("1.utforsk bygningene")
     print("2.dra inn i skoen og let")
-    input("")
-    # jobber videre senere
+    svar = input("")
+    if svar == ("1"):
+        cls()
+        print("du drar og utforsker bygningene, du finner desverre ikke noen gaver.")
+        print("men du finner for det om gamle klær og andre ting folk tilsynelatende har kastet fra seg der")
+        print("siden du ikke finner på noen bedre ting å gjøre så bestemmer du deg for å sjekke i skogen og i tilfelle")
+        input("")
+        lete_skog(ms,energi,har_lommelykt,har_matpakke)
 
-
+    elif svar == ("2"):
+        cls()
+        print("du bestemmer deg å sjekke skoen før husene, det er nok ikke noe der uansett...")
+        input("(trykk enter) ")
+        lete_skog(ms,energi,har_lommelykt,har_matpakke)
+    
+    else:
+        utkanten(ms,energi,har_lommelykt,har_matpakke)
+ 
 def lete_industri(ms,energi,har_lommelykt,har_matpakke):
     cls()
     print("du vandrer bort til det industrielle området i bygda, hvem vet. Kanskje noen har gjemt gavene her?")
     if energi == (1):
         print("du begynner å bli litt sulten, men det går fint")
-    input("")
-
+        
+    print("du bestemmer deg for å lete rundt omkring på det industrielle området, men siden det er så stort så må du velge, lete på nord eller sørsiden?")
+    print("1.nordsiden")
+    print("2.sørsiden")
     #jobber videre senere
+
+
+def lete_skog(ms,energi,har_lommelykt,har_matpakke):
+    cls()
+    print("du vandrer innover i skogen...")
+    if har_lommelykt == (1):
+        print("heldigvis har du jo med deg lommelykten din, så du kan holde på så lenge du bare orker")
+  
+    else:
+        print("det begynner å bli mørkt, du angrer litt på at du ikke tok med deg lommelykt...")
+  
+    print("1.vandre mot venste")
+    print("2.vandre mot høyre")
+    svar = input("")
+    if svar == ("1"):
+        cls()
+        print("du vandrer inn i skogen mot venstre")
+    
+    
+    elif svar == ("2"):
+        cls()
+        print("du vandrer inn i skogen mot høyre")
+
+    else:
+        lete_skog(ms,energi,har_lommelykt,har_matpakke)
+
+
+
+
 
 
 #-----------------------utilities---------------------#
