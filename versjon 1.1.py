@@ -274,7 +274,9 @@ def lete_industri(ms,energi,har_lommelykt,har_matpakke):
     print("du bestemmer deg for å lete rundt omkring på det industrielle området, men siden det er så stort så må du velge, lete på nord eller sørsiden?")
     print("1.nordsiden")
     print("2.sørsiden")
+    input("")
     #jobber videre senere
+
 
 
 def lete_skog(ms,energi,har_lommelykt,har_matpakke):
@@ -292,11 +294,15 @@ def lete_skog(ms,energi,har_lommelykt,har_matpakke):
     if svar == ("1"):
         cls()
         print("du vandrer inn i skogen mot venstre")
+        input("")
+        # jobbe videre senere
     
     
     elif svar == ("2"):
         cls()
         print("du vandrer inn i skogen mot høyre")
+        input("")
+        #jobbe videre senere
 
     else:
         lete_skog(ms,energi,har_lommelykt,har_matpakke)
