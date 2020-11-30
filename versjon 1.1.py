@@ -12,16 +12,13 @@ def startup():
     cls()	
     print("velkommen til julemysteriet")
     print("versjon 1.1")
-    print("1. start fra begynnelsen" "\n" "2. savegames (kommer)" "\n" "3. credits")
+    print("1. start fra begynnelsen" "\n" "2. credits")
     svar = input("")
  
     if svar == ("1"):
         game_start()
     
     elif svar == ("2"):
-        savegames()
-    
-    elif svar == ("3"):
         creds()
     
     else:
@@ -274,9 +271,27 @@ def lete_industri(ms,energi,har_lommelykt,har_matpakke):
     print("du bestemmer deg for å lete rundt omkring på det industrielle området, men siden det er så stort så må du velge, lete på nord eller sørsiden?")
     print("1.nordsiden")
     print("2.sørsiden")
-    input("")
-    #jobber videre senere
+    svar = input("")
+    if svar == ("1"):
+        cls()
+        print("du finner ut at du ikke har nok tid til å lete over alt, så du leter på nordsiden")
+        print("i den første containeren du ser i så finner du et gammelt traktorvrak")
+        input("trykk enter for å lete videre... ")
+        cls()
+        print("i container nummer to finner du masse tomme glassflasker. og hva er den lukten?")
+        print("det lukter som om noen har dødd her inne")
+        input("trykk enter forå lete videre... ")
+        cls()
+        print("etter mye leting finner du ikke noe annet enn skrot.. du bestemmer deg for å heller lete i utkanten av bygda")
+        input("(trykk enter) ")
+        utkanten(ms,energi,har_lommelykt,har_matpakke)
 
+    if svar == ("2"):
+        cls()
+        print("du finner ut at pakkene mest sansynlig er ved sørsiden av det industrielle området")
+
+    else:
+        lete_industri(ms,energi,har_lommelykt,har_matpakke)
 
 
 def lete_skog(ms,energi,har_lommelykt,har_matpakke):
@@ -294,31 +309,59 @@ def lete_skog(ms,energi,har_lommelykt,har_matpakke):
     if svar == ("1"):
         cls()
         print("du vandrer inn i skogen mot venstre")
-        input("")
-        # jobbe videre senere
+        input("(trykk enter) ")
+        venste_side(ms,energi,har_lommelykt,har_matpakke)
     
     
     elif svar == ("2"):
         cls()
         print("du vandrer inn i skogen mot høyre")
         input("")
-        #jobbe videre senere
+        hoyre_side(ms,energi,har_lommelykt,har_matpakke)
 
     else:
         lete_skog(ms,energi,har_lommelykt,har_matpakke)
 
 
+def venste_side(ms,energi,har_lommelykt,har_matpakke):
+    cls()
+    energi -= 1
+    print("du vandrer innover i skogen, og holder deg mot venstre." "\n" "og etter du har vandret lang innover så kommer du over en gruppe med bunkere, fra andre verdenskrig")
+    print("1. utforsk dem")
+    print("2. ikke utforsk dem")
+    #mer senere
 
 
+
+def hoyre_side(ms,energi,har_lommelykt,har_matpakke):
+    cls()
+    energi -= 1
+    print("du vandrer mot høyre innover i skogen. men motivasjonen begynner å falle...")
+    print("1.fortsett innover")
+    print("2.gå hjem og aksepter tapet...")
+    #mer senere
+
+
+def game_over():
+    cls()
+    print("#-----GAME OVER-----#")
+    print("prøv gjerne igjen :)")
+    print("1.start på ny")
+    print("2.jeg er dårlig på spill og velger å rage-quitte")
+    svar = input("")
+    if svar == ("1"):
+        startup()
+
+    elif svar == ("2"):
+        cls()
+        print("bare tulla, du har ikke noe valg. Prøv igjen")
+        input("(trykk enter) ")
+
+    else:
+        game_over()
 
 
 #-----------------------utilities---------------------#
- 
-def savegames():
-    cls()
-    print("kommer i en sener versjon :)")
-    input("")
-    startup()
  
  
 def creds():
