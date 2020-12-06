@@ -97,6 +97,8 @@ def wake_up(kjønn,hudfarge,navn):
         print("1.noe fargerikt")
         print("2.noe grått")
         kledd_på = input("")
+        print("etter du har kledd på deg, sjekker du telefonen. gg du ser at gavene til folk har blitt stjålet.")
+        input("(trykk enter) ")
         gavene_er_stjålet()
  
     elif svar == ("3"):
@@ -257,7 +259,7 @@ def utkanten(ms,energi,har_lommelykt,har_matpakke):
         print("du drar og utforsker bygningene, du finner desverre ikke noen gaver.")
         print("men du finner for det om gamle klær og andre ting folk tilsynelatende har kastet fra seg der")
         print("siden du ikke finner på noen bedre ting å gjøre så bestemmer du deg for å sjekke i skogen og i tilfelle")
-        input("")
+        input("(trykk enter) ")
         lete_skog(ms,energi,har_lommelykt,har_matpakke)
 
     elif svar == ("2"):
@@ -327,7 +329,7 @@ def lete_skog(ms,energi,har_lommelykt,har_matpakke):
     elif svar == ("2"):
         cls()
         print("du vandrer inn i skogen mot høyre")
-        input("")
+        input("(trykk enter) ")
         hoyre_side(ms,energi,har_lommelykt,har_matpakke,venstre_sjekket)
 
     else:
@@ -339,8 +341,8 @@ def venste_side(ms,energi,har_lommelykt,har_matpakke):
     cls()
     energi -= 1
     print("du vandrer innover i skogen, og holder deg mot venstre." "\n" "og etter du har vandret lang innover så kommer du over en gruppe med bunkere, fra andre verdenskrig")
-    print("1. utforsk dem")
-    print("2. gå videre")
+    print("1.utforsk dem")
+    print("2.gå videre")
     svar = input("")
     if svar == ("1"):
         cls()
@@ -351,8 +353,9 @@ def venste_side(ms,energi,har_lommelykt,har_matpakke):
         input("trykk enter) ")
         cls()
         print("du begynner å få lyst å gi opp og gå hjem")
-        print("let i den siste")
-        print("gå hjem")
+        print("1.let i den siste")
+        print("2.gå hjem")
+
         svar_2 = input("")
         if svar_2 == ("1"):
             cls()
@@ -365,12 +368,25 @@ def venste_side(ms,energi,har_lommelykt,har_matpakke):
             print("i det du kommer inn, smeller døren igjen bak deg. Du prøver å dytte den opp men det er til ingen nytte")
             if har_lommelykt == (1):
                 print("du skrur på lommelykten din og ser deg rundt i bunkeren, du ser ingen måter for deg og komme deg ut på. utenom en liten luke som tilsynelatendes kan virke som en slags rømnings luke")
+                print("1.prøv å åpne luken")
+                print("2.aksepter din uungåelige død som en dag vil gjør oss alle om til jord og la prosessen skje kjappere enn hvis du ville ha levd lengre...")
+                svar = input("")
+                if svar == ("1"):
+                    cls()
+                    print("du prøver å åpne luken men snubler og slå hodet ditt i betong gulvet..")
+                    input("(tryk enter) ")
+                    game_over()
+
+                elif svar == ("2"):
+                    cls()
+                    print("du har virkelig ikke lyst å spille spillet, har du vel?")
+                    input("(trykk enter) ")
+                    game_over()
 
             elif har_matpakke == (1):
                 print("du føler deg rundt og prøver å finne en lyskilde. men til ingen lykke, med ingen mobil dekning setter du deg og spiser ditt siste måltid, matpakken du tok med...")
                 input("(trykk enter) ")
                 game_over()
-            
             else:
                 print("med ingen mobil dekning, ingen mat og ikke noe lys, så setter du deg ned. Best å spare på energi. Tross alt leter nok noen etter deg uasnsett..")
                 input("(trykk enter) ")
@@ -399,7 +415,7 @@ def venste_side(ms,energi,har_lommelykt,har_matpakke):
 def hoyre_side(ms,energi,har_lommelykt,har_matpakke,venstre_sjekket):
     cls()
     #hvis rett til høyre
-    if venste_side == (0):
+    if venstre_sjekket == (0):
         print("du vandrer mot høyre innover i skogen. men motivasjonen begynner å falle...")
         print("1.fortsett innover")
         print("2.gå hjem og aksepter tapet...")
@@ -454,9 +470,10 @@ def hoyre_side(ms,energi,har_lommelykt,har_matpakke,venstre_sjekket):
 
 def utforsk_hule():
     cls()
-    print("skrur på lommelykten og går innover i hulen...")
+    print("du skrur på lommelykten og går innover i hulen...")
     print("på vei innover ser du fotspor som fortsetter innover")
     input("(trykk enter for å gå videre) ")
+    cls()
     print("etter en stund kommer du til enden av tunellen, du må krype forå komme helt inn, men så ser du det. mange bås sekker stappet inn i enden av hulen. kan dette være gavene???")
     input("(trykk enter for å få dem ut) ")
     hent_sekkene_ut()
@@ -465,6 +482,7 @@ def utforsk_hule():
     print("...")
     time.sleep(3)
     cls()
+    input("(trykk enter for å åpne gavene) ")
     print("GAVER!!! MASSE GAVER!!!")
     print("du har reddet julen!!!")
     input("(trykk enter) ")
