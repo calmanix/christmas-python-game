@@ -73,6 +73,7 @@ def game_start():
     wake_up(kjønn,hårfarge,navn)
  
  
+
 def wake_up(kjønn,hudfarge,navn):
     global kledd_på
     # veldig mange if/elif/else statments på vei.
@@ -106,6 +107,7 @@ def wake_up(kjønn,hudfarge,navn):
         wake_up(kjønn,hudfarge,navn)
  
  
+
 def prøv_å_sov():
     cls()
     print("du prøver å sove litt lengre. men du får så mange varslinger at nysjerrigheten din tar over, og du sjekker hva folk vil...")
@@ -115,6 +117,7 @@ def prøv_å_sov():
     gavene_er_stjålet()
  
  
+
 def gavene_er_stjålet():
     global kledd_på
     cls()
@@ -140,6 +143,7 @@ def gavene_er_stjålet():
     input("(trykk enter)")
     frokost()
  
+
  
 def frokost():
     global mat_spist
@@ -168,6 +172,7 @@ def frokost():
     else:
         frokost()
   
+
   
 def ut_og_lete(ms,energi):
     har_lommelykt = 0
@@ -214,6 +219,7 @@ def ut_og_lete(ms,energi):
         ut_og_lete(ms,energi)    
 
 
+
 def ut_og_lete_2(ms,energi,har_lommelykt,har_matpakke):
     cls()
     print("du tar på deg klær, nå er det bare å begynne å lete, klokken er nå 12...")
@@ -236,6 +242,7 @@ def ut_og_lete_2(ms,energi,har_lommelykt,har_matpakke):
 
     else:
         ut_og_lete_2(ms,energi,har_lommelykt,har_matpakke)
+
 
 
 def utkanten(ms,energi,har_lommelykt,har_matpakke):
@@ -262,6 +269,8 @@ def utkanten(ms,energi,har_lommelykt,har_matpakke):
     else:
         utkanten(ms,energi,har_lommelykt,har_matpakke)
  
+
+
 def lete_industri(ms,energi,har_lommelykt,har_matpakke):
     cls()
     print("du vandrer bort til det industrielle området i bygda, hvem vet. Kanskje noen har gjemt gavene her?")
@@ -294,7 +303,9 @@ def lete_industri(ms,energi,har_lommelykt,har_matpakke):
         lete_industri(ms,energi,har_lommelykt,har_matpakke)
 
 
+
 def lete_skog(ms,energi,har_lommelykt,har_matpakke):
+    venstre_sjekket = 0
     cls()
     print("du vandrer innover i skogen...")
     if har_lommelykt == (1):
@@ -317,10 +328,11 @@ def lete_skog(ms,energi,har_lommelykt,har_matpakke):
         cls()
         print("du vandrer inn i skogen mot høyre")
         input("")
-        hoyre_side(ms,energi,har_lommelykt,har_matpakke)
+        hoyre_side(ms,energi,har_lommelykt,har_matpakke,venstre_sjekket)
 
     else:
         lete_skog(ms,energi,har_lommelykt,har_matpakke)
+
 
 
 def venste_side(ms,energi,har_lommelykt,har_matpakke):
@@ -328,18 +340,191 @@ def venste_side(ms,energi,har_lommelykt,har_matpakke):
     energi -= 1
     print("du vandrer innover i skogen, og holder deg mot venstre." "\n" "og etter du har vandret lang innover så kommer du over en gruppe med bunkere, fra andre verdenskrig")
     print("1. utforsk dem")
-    print("2. ikke utforsk dem")
-    #mer senere
+    print("2. gå videre")
+    svar = input("")
+    if svar == ("1"):
+        cls()
+        print("du går inn i den første av dem, men finner ikke noe...")
+        input("(trykk enter) ")
+        cls()
+        print("du finner heller ikke noe i den andre...")
+        input("trykk enter) ")
+        cls()
+        print("du begynner å få lyst å gi opp og gå hjem")
+        print("let i den siste")
+        print("gå hjem")
+        svar_2 = input("")
+        if svar_2 == ("1"):
+            cls()
+            print("du bestemmer deg for å lete bare for å være sikker..." "\n" "(trykk enter)")
+            input()
+            cls()
+            print("du tar deg inn i den siste bunkeren, det er vanskelig siden døren veldig tung å få opp...")
+            print("(trykk enter)")
+            cls()
+            print("i det du kommer inn, smeller døren igjen bak deg. Du prøver å dytte den opp men det er til ingen nytte")
+            if har_lommelykt == (1):
+                print("du skrur på lommelykten din og ser deg rundt i bunkeren, du ser ingen måter for deg og komme deg ut på. utenom en liten luke som tilsynelatendes kan virke som en slags rømnings luke")
+
+            elif har_matpakke == (1):
+                print("du føler deg rundt og prøver å finne en lyskilde. men til ingen lykke, med ingen mobil dekning setter du deg og spiser ditt siste måltid, matpakken du tok med...")
+                input("(trykk enter) ")
+                game_over()
+            
+            else:
+                print("med ingen mobil dekning, ingen mat og ikke noe lys, så setter du deg ned. Best å spare på energi. Tross alt leter nok noen etter deg uasnsett..")
+                input("(trykk enter) ")
+                cls()
+                print("etter noen timer faller solen, og kulden kommer. Du er sulten, trøtt og det virker ikke som om at noen skal komme og redde deg...")
+                input("(trykk enter) ")
+                game_over()
+
+        elif svar_2 == ("2"):
+            cls()
+            print("du bestemmer deg for at det ikke er vits å sjekke den siste. Det ser ikke ut som om at noen har vært hert på lenge uansett...")
+            print("du bestemmer deg for å bare dra hjem, men du er lat. Så du tar heller en snarvei gjennom den andre siden av skogen...")
+            input("(trykk enter) ")
+            venstre_sjekket = 1
+            hoyre_side(ms,energi,har_lommelykt,har_matpakke,venstre_sjekket)
+            
+    #gå videre
+    elif svar == ("2"):
+        cls()
+        print("bunkerene er ikke verdt det, du vandrer i en sirkel. og ender til slutt opp på den motsatte siden av skoen...")
+        input("(trykk enter) ")
+        hoyre_side(ms,energi,har_lommelykt,har_matpakke,venstre_sjekket)
 
 
 
-def hoyre_side(ms,energi,har_lommelykt,har_matpakke):
+def hoyre_side(ms,energi,har_lommelykt,har_matpakke,venstre_sjekket):
     cls()
-    energi -= 1
-    print("du vandrer mot høyre innover i skogen. men motivasjonen begynner å falle...")
-    print("1.fortsett innover")
-    print("2.gå hjem og aksepter tapet...")
-    #mer senere
+    #hvis rett til høyre
+    if venste_side == (0):
+        print("du vandrer mot høyre innover i skogen. men motivasjonen begynner å falle...")
+        print("1.fortsett innover")
+        print("2.gå hjem og aksepter tapet...")
+        svar = input("")
+        if svar == ("1"):
+            cls()
+            print("du fortsetter innover, og finner fotspor???")
+            print("dette må du undersøke nærmere, det er helt uvanligt at noen skal gå her på vinteren")
+            input("(trykk enter) ")
+            cls()
+            print("etter du har følgt sporene en stund, kommer du til en hule, du sjekker mobilen. klokken er nå 19:00")
+            if har_lommelykt == (1):
+                print("1.utforsk hulen")
+                print("2. dra hjem og gi opp")
+                svar = input("")
+                if svar == ("1"):
+                
+                    utforsk_hule()
+                
+                elif svar == ("2"):
+                    cls()
+                    print("du drar hjem, og gir opp. dessuten, hvorfor skulle du klart å finne gavene uasnett?")
+                    input("(trykk enter) ")
+                    game_over()
+
+            
+    #hvis man kommer fra venstre siden
+    else:
+        cls()
+        print("du er på vei hjemover og i det du skal gå ut av skogen finner du fotspor, som garantert ikke er dine")
+        print("nå er motivasjonen tilbake og du må bare finne ut hvor fortsporene ender.")
+        input("(trykk enter) ")
+        print("du vandrer bortover, og ender opp med en huleinngang")
+        if har_lommelykt == (1):
+            print("1.utforsk hulen")
+            print("2.gå hjem og gi opp")
+
+        else:
+            print("du har ikke lommelykt så du får dra hjem og hente en...")
+            input("(trykk enter) ")
+            cls()
+            print("du drar hjemover, men klokken er for sent til at du kan dra ut og lete igjen...")
+            input("(trykk enter for å sove) ")
+            cls()
+            print("du våkner dagen etterpå og tar med lommelykten med til huleinngangen")
+            input("(trykk enter for å gå inn) ")
+            utforsk_hule()
+
+
+
+
+
+def utforsk_hule():
+    cls()
+    print("skrur på lommelykten og går innover i hulen...")
+    print("på vei innover ser du fotspor som fortsetter innover")
+    input("(trykk enter for å gå videre) ")
+    print("etter en stund kommer du til enden av tunellen, du må krype forå komme helt inn, men så ser du det. mange bås sekker stappet inn i enden av hulen. kan dette være gavene???")
+    input("(trykk enter for å få dem ut) ")
+    hent_sekkene_ut()
+    cls()
+    print("nå er tiden kommer, du begynner å åpne sekkene")
+    print("...")
+    time.sleep(3)
+    cls()
+    print("GAVER!!! MASSE GAVER!!!")
+    print("du har reddet julen!!!")
+    input("(trykk enter) ")
+    victory()
+
+
+
+def hent_sekkene_ut():
+    cls()
+    print("trekker sekkene fram for å samle dem")
+    time.sleep(1)
+    print(".")
+    cls()
+    print("trekker sekkene fram for å samle dem")
+    print("..")
+    time.sleep(1)
+    cls()
+    print("trekker sekkene fram for å samle dem")
+    print("...")
+    time.sleep(1)
+
+    cls()
+    print("finner en måte å bære dem alle på likt")
+    print(".")
+    time.sleep(1)
+    cls()
+    print("finner en måte å bære dem alle på likt")
+    print("..")
+    time.sleep(1)
+    cls()
+    print("finner en måte å bære dem alle på likt")
+    print("...")
+    time.sleep(1)
+    
+    cls()
+    print("drasser dem ut...")
+    print(".")
+    time.sleep(1)
+    cls()
+    print("drasser dem ut...")
+    print("..")
+    time.sleep(1)
+    cls()
+    print("drasser dem ut...")
+    print("...")
+    time.sleep(1)
+    
+    cls()
+    print("setter dem på rekke...")
+    print(".")
+    time.sleep(1)
+    cls()
+    print("setter dem på rekke...")
+    print("..")
+    time.sleep(1)
+    cls()
+    print("setter dem på rekke...")
+    print("...")
+    time.sleep(1)
+    return
 
 
 def game_over():
@@ -361,6 +546,32 @@ def game_over():
         game_over()
 
 
+def victory():
+    cls()
+    print("gratulerer med seieren, du har nå fullført spillet jeg brukte alt for lang tid på å få ferdigstilt...")
+    print("takk for meg. plis gi meg 6+ :)")
+    print("ps,")
+    print("         _nnnn_                      ")
+    print("        dGGGGMMb     ,"""""""""""""".")
+    print("       @p~qp~~qMb    | Linux Rules! |")
+    print("       M|@||@) M|   _;..............'")
+    print("       @,----.JM| -'")
+    print("      JS^\__/  qKL")
+    print("     dZP        qKRb")
+    print("    dZP          qKKb")
+    print("   fZP            SMMb")
+    print("   HZM            MMMM")
+    print("   FqM            MMMM")
+    print(" __| ,.        |\dS.qML")
+    print(" |    `.       | `' \Zq")
+    print("_)      \.___.,|     .'")
+    print("\____   )MMMMMM|   .'")
+    print("     `-'       `--' hjm")
+
+    input()
+    victory()
+
+
 #-----------------------utilities---------------------#
  
  
@@ -370,13 +581,16 @@ def creds():
     input()
     startup()
  
+
  
 def cls():
     # laget som en workaround til at det er forskjellige måter å gjøre cls på forskjellige os'er
     # kan ha litt glitchy effekt når man ikke er i fullskjerm, men funker intil videre
     print("\n"*200)
     return
- 
+
+
+
 def loading():
     cls()
     print(".")
