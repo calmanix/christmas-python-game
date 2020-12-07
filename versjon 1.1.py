@@ -396,11 +396,10 @@ def venste_side(ms,energi,har_lommelykt,har_matpakke):
                 game_over()
 
         elif svar_2 == ("2"):
+            venstre_sjekket = 1
             cls()
-            print("du bestemmer deg for at det ikke er vits å sjekke den siste. Det ser ikke ut som om at noen har vært hert på lenge uansett...")
             print("du bestemmer deg for å bare dra hjem, men du er lat. Så du tar heller en snarvei gjennom den andre siden av skogen...")
             input("(trykk enter) ")
-            venstre_sjekket = 1
             hoyre_side(ms,energi,har_lommelykt,har_matpakke,venstre_sjekket)
             
     #gå videre
@@ -408,6 +407,7 @@ def venste_side(ms,energi,har_lommelykt,har_matpakke):
         cls()
         print("bunkerene er ikke verdt det, du vandrer i en sirkel. og ender til slutt opp på den motsatte siden av skoen...")
         input("(trykk enter) ")
+        venstre_sjekket = 1
         hoyre_side(ms,energi,har_lommelykt,har_matpakke,venstre_sjekket)
 
 
@@ -441,7 +441,11 @@ def hoyre_side(ms,energi,har_lommelykt,har_matpakke,venstre_sjekket):
                     input("(trykk enter) ")
                     game_over()
 
-            
+                else:
+                    print("du klarer ikke å bestemme deg, så bruker en nettside som 50/50 velger noe... det ble til at du skal utforske hulen")
+                    input("(trykk enter) ")
+                    utforsk_hule()
+
     #hvis man kommer fra venstre siden
     else:
         cls()
@@ -559,6 +563,7 @@ def game_over():
         cls()
         print("bare tulla, du har ikke noe valg. Prøv igjen")
         input("(trykk enter) ")
+        startup()
 
     else:
         game_over()
