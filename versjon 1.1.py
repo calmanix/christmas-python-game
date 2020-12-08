@@ -498,7 +498,7 @@ def utforsk_hule():
     print("...")
     time.sleep(3)
     cls()
-    input("(trykk enter for å åpne gavene) ")
+    input("(trykk enter for å åpne sekkene) ")
     print("GAVER!!! MASSE GAVER!!!")
     print("du har reddet julen!!!")
     input("(trykk enter) ")
