@@ -276,8 +276,7 @@ def utkanten(ms,energi,har_lommelykt,har_matpakke):
 def lete_industri(ms,energi,har_lommelykt,har_matpakke):
     cls()
     print("du vandrer bort til det industrielle området i bygda, hvem vet. Kanskje noen har gjemt gavene her?")
-    if energi == (1):
-        print("du begynner å bli litt sulten, men det går fint")
+    print("du begynner å bli litt sulten, men det går fint")
         
     print("du bestemmer deg for å lete rundt omkring på det industrielle området, men siden det er så stort så må du velge, lete på nord eller sørsiden?")
     print("1.nordsiden")
