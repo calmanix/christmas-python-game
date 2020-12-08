@@ -460,6 +460,14 @@ def hoyre_side(ms,energi,har_lommelykt,har_matpakke,venstre_sjekket):
         if har_lommelykt == (1):
             print("1.utforsk hulen")
             print("2.gå hjem og gi opp")
+            svar = input("")
+            if svar == ("1"):
+                utforsk_hule()
+            
+            elif svar == ("2"):
+                print("du drar hjemover, og aksepterer at gavene er tapt for alltid")
+                input("(trykk enter) ")
+                game_over()
 
         else:
             print("du har ikke lommelykt så du får dra hjem og hente en...")
