@@ -304,7 +304,7 @@ def lete_industri(ms,energi,har_lommelykt,har_matpakke):
         cls()
         print("etter mye leting så finner du desverre ikke noe på sørsiden heller, du finner ut at du vil lete ved utkanten av bygda")
         input("(trykk enter) ")
-        utkanten(ms,energi,har_lommelykt,har_matpakke)
+        utkanten(ms,energi,har_lommelykt,har_matpakke  )
 
     else:
         lete_industri(ms,energi,har_lommelykt,har_matpakke)
