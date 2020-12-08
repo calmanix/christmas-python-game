@@ -252,7 +252,7 @@ def utkanten(ms,energi,har_lommelykt,har_matpakke):
     print("du drar til utkanten av bygda, det er forlatte bygg fra gamledager")
     print("og en skog")
     print("1.utforsk bygningene")
-    print("2.dra inn i skoen og let")
+    print("2.dra inn i skogen og let")
     svar = input("")
     if svar == ("1"):
         cls()
@@ -264,7 +264,7 @@ def utkanten(ms,energi,har_lommelykt,har_matpakke):
 
     elif svar == ("2"):
         cls()
-        print("du bestemmer deg å sjekke skoen før husene, det er nok ikke noe der uansett...")
+        print("du bestemmer deg å sjekke skogen før husene, det er nok ikke noe der uansett...")
         input("(trykk enter) ")
         lete_skog(ms,energi,har_lommelykt,har_matpakke)
     
@@ -410,7 +410,7 @@ def venste_side(ms,energi,har_lommelykt,har_matpakke):
     #gå videre
     elif svar == ("2"):
         cls()
-        print("bunkerene er ikke verdt det, du vandrer i en sirkel. og ender til slutt opp på den motsatte siden av skoen...")
+        print("bunkerene er ikke verdt det, du vandrer i en sirkel. og ender til slutt opp på den motsatte siden av skogen...")
         input("(trykk enter) ")
         venstre_sjekket = 1
         hoyre_side(ms,energi,har_lommelykt,har_matpakke,venstre_sjekket)
