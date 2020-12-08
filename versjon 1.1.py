@@ -97,7 +97,7 @@ def wake_up(kjønn,hudfarge,navn):
         print("1.noe fargerikt")
         print("2.noe grått")
         kledd_på = input("")
-        print("etter du har kledd på deg, sjekker du telefonen. gg du ser at gavene til folk har blitt stjålet.")
+        print("etter du har kledd på deg, sjekker du telefonen. og du ser at gavene til folk har blitt stjålet.")
         input("(trykk enter) ")
         gavene_er_stjålet()
  
@@ -300,6 +300,11 @@ def lete_industri(ms,energi,har_lommelykt,har_matpakke):
     if svar == ("2"):
         cls()
         print("du finner ut at pakkene mest sansynlig er ved sørsiden av det industrielle området")
+        input("(trykk enter) ")
+        cls()
+        print("etter mye leting så finner du desverre ikke noe på sørsiden heller, du finner ut at du vil lete ved utkanten av bygda")
+        input("(trykk enter) ")
+        utkanten(ms,energi,har_lommelykt,har_matpakke)
 
     else:
         lete_industri(ms,energi,har_lommelykt,har_matpakke)
