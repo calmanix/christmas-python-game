@@ -1,5 +1,4 @@
 # programmeringsprosjekt skole. 10 klasse julespill
-# Navn: the package thief
 # versjon 1.1
 # du som leser dette, ikke ha høye forventninger
 # ---------------------------------------------------------
